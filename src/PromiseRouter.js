@@ -95,6 +95,7 @@ export default class PromiseRouter {
       const layer = route.layer || new Layer(route.path, null, route.handler);
       const match = layer.match(path);
       if (match) {
+        console.log(`Found match: ${route.path}`);
         const params = layer.params;
         Object.keys(params).forEach(key => {
           params[key] = validateParameter(key, params[key]);
