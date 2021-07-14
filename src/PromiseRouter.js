@@ -95,7 +95,24 @@ export default class PromiseRouter {
       const layer = route.layer || new Layer(route.path, null, route.handler);
       const match = layer.match(path);
       if (match) {
-        console.log(`Found match: ${route.path}`);
+        log.error(`
+        
+        
+        Found match: ${route.path}
+        
+        
+        
+        
+        `);
+        console.log(`
+        
+        
+        Found match: ${route.path}
+        
+        
+        
+        
+        `);
         const params = layer.params;
         Object.keys(params).forEach(key => {
           params[key] = validateParameter(key, params[key]);
@@ -120,8 +137,8 @@ export default class PromiseRouter {
   }
 
   tryRouteRequest(method, path, request) {
-    log.error(`tryRouteRequest ${method} ${path} ${request} ${JSON.stringify(this.routes)}`);
-    console.log(`tryRouteRequest ${method} ${path} ${request} ${JSON.stringify(this.routes)}`);
+    //log.error(`tryRouteRequest ${method} ${path} ${request} ${JSON.stringify(this.routes)}`);
+    //console.log(`tryRouteRequest ${method} ${path} ${request} ${JSON.stringify(this.routes)}`);
     var match = this.match(method, path);
     if (!match) {
       throw new Parse.Error(
