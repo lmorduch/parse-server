@@ -119,6 +119,8 @@ export default class PromiseRouter {
   }
 
   tryRouteRequest(method, path, request) {
+    log.error(`tryRouteRequest ${method} ${path} ${request} ${this.routes}`);
+    console.log(`tryRouteRequest ${method} ${path} ${request} ${this.routes}`);
     var match = this.match(method, path);
     if (!match) {
       throw new Parse.Error(
